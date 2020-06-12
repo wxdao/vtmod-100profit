@@ -1,27 +1,15 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using HarmonyLib;
 using VoxelTycoon.Serialization;
 using VoxelTycoon.Tracks;
 
-public class ProfitMod : VoxelTycoon.Modding.IMod
+public class ProfitMod : VoxelTycoon.Modding.Mod
 {
-    public void OnBeforeGameLoad()
+    protected override void Initialize()
     {
         var harmony = new Harmony("wxdao.100profit");
         harmony.PatchAll();
-    }
-
-    public void OnGameLoaded()
-    {
-    }
-
-    public void Read(StateBinaryReader reader)
-    {
-    }
-
-    public void Write(StateBinaryWriter writer)
-    {
     }
 }
 
@@ -42,4 +30,3 @@ class VehicleStation_OnInvalidateSiblings_ProfitPatch
         }
     }
 }
-
